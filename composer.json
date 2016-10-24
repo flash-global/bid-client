@@ -18,24 +18,10 @@
         {
             "type": "composer",
             "url": "https://composer.flash-global.net"
-        },
-        {
-            "type": "path",
-            "url": "../bid-common",
-            "options": {
-                "symlink":  true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../../api/api-client",
-            "options": {
-                "symlink":  true
-            }
         }
     ],
     "require": {
-        "fei/bid-common": "dev-master",
+        "fei/bid-common": "^1.0",
         "fei/api-client": "^1.1",
         "fei/entities": "^1.0"
     },

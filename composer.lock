@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5846deb1bd77eb397b93084507cea568",
-    "content-hash": "c25ca40fe06d110c1b9fc48f796ea060",
+    "hash": "6d42c84d58e9db18026e62f8bdc5e82e",
+    "content-hash": "16bcabc321ab28d9839b50215dea6347",
     "packages": [
         {
             "name": "aura/sqlquery",
@@ -73,35 +73,35 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.7",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535"
+                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
-                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
+                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "1.*",
-                "php": ">=5.3.2"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "4.*"
+                "phpunit/phpunit": "^5.6.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Annotations\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Annotations\\": "lib/Doctrine/Common/Annotations"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -137,7 +137,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2015-08-31 12:32:49"
+            "time": "2016-10-24 11:45:47"
         },
         {
             "name": "doctrine/cache",
@@ -581,12 +581,17 @@
         },
         {
             "name": "fei/bid-common",
-            "version": "dev-master",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:flash-global/bid-common.git",
+                "reference": "ed0a3357d773302e3c538456efe940f66bc6ece4"
+            },
             "dist": {
-                "type": "path",
-                "url": "../bid-common",
-                "reference": "8e39841f9da940318fa384b3ff62a6f6f29083b9",
-                "shasum": null
+                "type": "zip",
+                "url": "https://api.github.com/repos/flash-global/bid-common/zipball/ed0a3357d773302e3c538456efe940f66bc6ece4",
+                "reference": "ed0a3357d773302e3c538456efe940f66bc6ece4",
+                "shasum": ""
             },
             "require": {
                 "doctrine/common": "^2.6",
@@ -613,9 +618,11 @@
                 }
             ],
             "description": "Flash applicative bid - common component",
-            "transport-options": {
-                "symlink": true
-            }
+            "support": {
+                "source": "https://github.com/flash-global/bid-common/tree/master",
+                "issues": "https://github.com/flash-global/bid-common/issues"
+            },
+            "time": "2016-10-24 14:55:21"
         },
         {
             "name": "fei/context",
@@ -3127,9 +3134,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "fei/bid-common": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
