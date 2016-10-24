@@ -1,0 +1,45 @@
+{
+    "name": "fei/bid-client",
+    "description": "Flash applicative Bid - client component",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Vincent Simonin",
+            "email": "vsi@opcoding.eu"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fei\\Service\\Bid\\Client\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.flash-global.net"
+        },
+        {
+            "type": "path",
+            "url": "../bid-common",
+            "options": {
+                "symlink":  true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../api/api-client",
+            "options": {
+                "symlink":  true
+            }
+        }
+    ],
+    "require": {
+        "fei/bid-common": "dev-master",
+        "fei/api-client": "^1.1",
+        "fei/entities": "^1.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^2.2"
+    }
+}
