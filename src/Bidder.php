@@ -7,6 +7,7 @@ use Fei\ApiClient\ApiClientException;
 use Fei\ApiClient\RequestDescriptor;
 use Fei\ApiClient\ResponseDescriptor;
 use Fei\Entity\EntityInterface;
+use Fei\Entity\EntitySet;
 use Fei\Entity\PaginatedEntitySet;
 use Fei\Service\Bid\Client\Exception\BidderException;
 use Fei\Service\Bid\Client\Exception\NonPersistedEntityException;
@@ -94,7 +95,7 @@ class Bidder extends AbstractApiClient implements BidderInterface
             $this->buildUrl(self::API_AUCTION_PATH_INFO . '?' . http_build_query([Auction::CRITERIA_KEY => $key]))
         )->setMethod('GET');
 
-        $set = $this->buildPaginatedEntitySet($this->send($request));
+        $set = $this->buildEntitySet($this->send($request));
 
         return !empty($set[0]) ? $set[0] : null;
     }
@@ -117,7 +118,7 @@ class Bidder extends AbstractApiClient implements BidderInterface
             )
             ->setMethod('GET');
 
-        $bids = $this->buildPaginatedEntitySet($this->send($request));
+        $bids = $this->buildEntitySet($this->send($request));
 
         foreach ($bids as &$bid) {
             $auction->addBid($bid);
@@ -244,11 +245,11 @@ class Bidder extends AbstractApiClient implements BidderInterface
      *
      * @param ResponseDescriptor $response
      *
-     * @return PaginatedEntitySet
+     * @return EntitySet|PaginatedEntitySet
      */
-    protected function buildPaginatedEntitySet(ResponseDescriptor $response)
+    protected function buildEntitySet(ResponseDescriptor $response)
     {
-        $entities = new PaginatedEntitySet();
+        $entities = [];
 
         $data = $response->getData();
 
@@ -262,23 +263,7 @@ class Bidder extends AbstractApiClient implements BidderInterface
             }
         }
 
-        if ($response->getMeta('pagination')) {
-            $pagination = $response->getMeta('pagination');
-
-            if (!empty($pagination['current_page'])) {
-                $entities->setCurrentPage($pagination['current_page']);
-            }
-
-            if (!empty($pagination['per_page'])) {
-                $entities->setPerPage($pagination['per_page']);
-            }
-
-            if (!empty($pagination['total'])) {
-                $entities->setTotal($pagination['total']);
-            }
-        }
-
-        return $entities;
+        return new EntitySet($entities);
     }
 
     /**

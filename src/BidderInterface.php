@@ -52,7 +52,7 @@ interface BidderInterface
      * @param Auction $auction
      * @param array   $criteria
      *
-     * @return \Fei\Entity\PaginatedEntitySet
+     * @return \Fei\Entity\EntitySet
      */
     public function getAuctionBids(Auction $auction, array $criteria = []);
 

@@ -382,10 +382,6 @@ class BidTest extends Unit
 
         $this->assertCount(1, $bids);
         $this->assertInstanceOf(Bid::class, $bids[0]);
-
-        $this->assertEquals($bids->getCurrentPage(), 1);
-        $this->assertEquals($bids->getPerPage(), 10);
-        $this->assertEquals($bids->getTotal(), 100);
     }
 
     public function testGetAuctionBidsNoAuctionPersisted()
