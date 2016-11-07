@@ -7,7 +7,7 @@ use Fei\Service\Bid\Entity\Auction;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$bidder = new Bidder([Bidder::OPTION_BASEURL => 'http://localhost:8080']);
+$bidder = new Bidder([Bidder::OPTION_BASEURL => 'http://bid.test.flash-global.net']);
 $bidder->setTransport(new BasicTransport());
 
 $auction = (new Auction())
