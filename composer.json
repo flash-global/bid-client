@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "fei/bid-common": "^1.0",
+        "fei/bid-common": "^2.0",
         "fei/api-client": "^1.1",
         "fei/entities": "^1.0"
     },
