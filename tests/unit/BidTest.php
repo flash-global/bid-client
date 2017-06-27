@@ -466,6 +466,45 @@ class BidTest extends Unit
         $bidder->bid(new Auction(), new Bid());
     }
 
+    public function testUpdateStatusBid()
+    {
+        $url = '';
+        $method = '';
+
+        $transport = $this->createMock(SyncTransportInterface::class);
+        $transport->expects($this->once())->method('send')->willReturnCallback(
+            function (RequestDescriptor $request) use (&$url, &$method) {
+                $url = $request->getUrl();
+                $method = $request->getMethod();
+                return (new ResponseDescriptor())->setBody(json_encode([]));
+            }
+        );
+
+        $bidder = new Bidder([Bidder::OPTION_BASEURL => 'http://url']);
+        $bidder->setTransport($transport);
+
+        $bidder->updateBidStatus(
+            (new Bid())->setId(1)->setStatus(Bid::STATUS_REFUSED)
+        );
+
+        $this->assertEquals('http://url/api/bids/1', $url);
+        $this->assertEquals('PATCH', $method);
+    }
+
+    public function testUpdateStatusBidNotPersisted()
+    {
+        $transport = $this->createMock(SyncTransportInterface::class);
+        $transport->expects($this->never())->method('send');
+
+        $bidder = new Bidder([Bidder::OPTION_BASEURL => 'http://url']);
+        $bidder->setTransport($transport);
+
+        $this->expectException(NonPersistedEntityException::class);
+        $this->expectExceptionMessage('Bid entity was not persisted');
+
+        $bidder->updateBidStatus(new Bid());
+    }
+
     public function testDropBid()
     {
         $url = '';
