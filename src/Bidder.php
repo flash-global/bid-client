@@ -152,6 +152,26 @@ class Bidder extends AbstractApiClient implements BidderInterface
     /**
      * {@inheritdoc}
      */
+    public function updateBidStatus(Bid $bid)
+    {
+        if ($bid->getId() == null) {
+            throw new NonPersistedEntityException('Bid entity was not persisted');
+        }
+
+        $request = (new RequestDescriptor())
+            ->setUrl($this->buildUrl(sprintf(self::API_BID_PATH_INFO .'/%d', $bid->getId())))
+            ->setMethod('PATCH');
+
+        $request->setBodyParams([
+            'status' => $bid->getStatus(),
+        ]);
+
+        return $this->send($request);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function dropBid(Bid $bid)
     {
         if ($bid->getId() == null) {
