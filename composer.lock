@@ -449,17 +449,17 @@
         },
         {
             "name": "fei/bid-common",
-            "version": "v2.0.2",
+            "version": "V2.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:flash-global/bid-common.git",
-                "reference": "33ca8b37337b32d7470f7f5bcf5f103ca154a3fc"
+                "reference": "41640db9bf7fd785b18f22a8fc4753b93a80aad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://composer.flash-global.net/dist/fei-bid-common-33ca8b37337b32d7470f7f5bcf5f103ca154a3fc-zip-aaf620.zip",
-                "reference": "33ca8b37337b32d7470f7f5bcf5f103ca154a3fc",
-                "shasum": "d4e83292dd2174c1cd4d763124d0ee083f5466c3"
+                "url": "https://composer.flash-global.net/dist/fei-bid-common-41640db9bf7fd785b18f22a8fc4753b93a80aad1-zip-641603.zip",
+                "reference": "41640db9bf7fd785b18f22a8fc4753b93a80aad1",
+                "shasum": "85aaaafcd60cd93e926197a040f3d7a50c7e47c6"
             },
             "require": {
                 "doctrine/common": "^2.6",
@@ -489,7 +489,7 @@
                 "source": "https://github.com/flash-global/bid-common/tree/master",
                 "issues": "https://github.com/flash-global/bid-common/issues"
             },
-            "time": "2017-06-26T11:20:15+00:00"
+            "time": "2017-06-29T13:47:55+00:00"
         },
         {
             "name": "fei/entities",
