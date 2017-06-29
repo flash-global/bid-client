@@ -97,7 +97,13 @@ class Bidder extends AbstractApiClient implements BidderInterface
 
         $set = $this->buildEntitySet($this->send($request));
 
-        return !empty($set[0]) ? $set[0] : null;
+        if (is_array($key)) {
+            $result = !empty($set) ? $set : null;
+        } else {
+            $result = !empty($set[0]) ? $set[0] : null;
+        }
+
+        return $result;
     }
 
     /**
