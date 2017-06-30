@@ -8,6 +8,7 @@ use Fei\ApiClient\ApiClientException;
 use Fei\ApiClient\RequestDescriptor;
 use Fei\ApiClient\ResponseDescriptor;
 use Fei\ApiClient\Transport\SyncTransportInterface;
+use Fei\Entity\EntitySet;
 use Fei\Service\Bid\Client\Bidder;
 use Fei\Service\Bid\Client\Exception\BidderException;
 use Fei\Service\Bid\Client\Exception\NonPersistedEntityException;
@@ -206,7 +207,7 @@ class BidTest extends Unit
         $method = '';
 
         $transport = $this->createMock(SyncTransportInterface::class);
-        $transport->expects($this->once())->method('send')->willReturnCallback(
+        $transport->expects($this->exactly(2))->method('send')->willReturnCallback(
             function (RequestDescriptor $request) use (&$url, &$method) {
                 $url = $request->getUrl();
                 $method = $request->getMethod();
@@ -240,6 +241,10 @@ class BidTest extends Unit
         $this->assertEquals('GET', $method);
 
         $this->assertInstanceOf(Auction::class, $auction);
+
+        // Test call with multiple keys.
+        $auctions = $bidder->getAuction(['a key', 'another key']);
+        $this->assertInstanceOf(EntitySet::class, $auctions);
     }
 
     public function testGetAuctionNoEntityClassName()
