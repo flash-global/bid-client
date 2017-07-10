@@ -449,17 +449,17 @@
         },
         {
             "name": "fei/bid-common",
-            "version": "V2.0.5",
+            "version": "v2.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:flash-global/bid-common.git",
-                "reference": "553a5b12ee86c881a87fe2c6bdce531bc660a256"
+                "reference": "5081cdcda9ba4aa67de906f270e0e250729e94bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://composer.flash-global.net/dist/fei-bid-common-553a5b12ee86c881a87fe2c6bdce531bc660a256-zip-2daaf0.zip",
-                "reference": "553a5b12ee86c881a87fe2c6bdce531bc660a256",
-                "shasum": "902c8788483d722bb0c35a9d99f2abe9a1b8903b"
+                "url": "https://composer.flash-global.net/dist/fei-bid-common-5081cdcda9ba4aa67de906f270e0e250729e94bd-zip-5f7e5b.zip",
+                "reference": "5081cdcda9ba4aa67de906f270e0e250729e94bd",
+                "shasum": "05098cdf5bab60fe16bbe5cde529263dedd6e357"
             },
             "require": {
                 "doctrine/common": "^2.6",
@@ -489,7 +489,7 @@
                 "source": "https://github.com/flash-global/bid-common/tree/master",
                 "issues": "https://github.com/flash-global/bid-common/issues"
             },
-            "time": "2017-07-07T07:50:09+00:00"
+            "time": "2017-07-07T11:41:38+00:00"
         },
         {
             "name": "fei/entities",
@@ -501,9 +501,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flash-global/entities/zipball/bf2aa1ae8c0c49cb6989c58c721a45e8692a52ab",
+                "url": "https://composer.flash-global.net/dist/fei-entities-bf2aa1ae8c0c49cb6989c58c721a45e8692a52ab-zip-acd356.zip",
                 "reference": "bf2aa1ae8c0c49cb6989c58c721a45e8692a52ab",
-                "shasum": ""
+                "shasum": "67bf0a2ab69dfdb61a376b8ced88c87ed7f47e03"
             },
             "require-dev": {
                 "codeception/codeception": "^2.2",
