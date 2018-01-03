@@ -1,28 +1,66 @@
-# Bid Client
+# Service Bid - Client
 
-This is the client you should use to build auctions session.
+[![GitHub release](https://img.shields.io/github/release/flash-global/bid-client.svg?style=for-the-badge)](README.md) 
 
-The client can use two kind of transports to send request:
 
-* Asynchronous transport implemented by `BeanstalkProxyTransport`
-* Synchronous transport implemented by `BasicTransport`
+## Table of contents
+- [Purpose](#purpose)
+- [Requirements](#requirements)
+    - [Runtime](#runtime)
+- [Step by step installation](#step-by-step-installation)
+    - [Initialization](#initialization)
+    - [Settings](#settings)
+    - [Known issues](#known-issues)
+- [Contribution](#contribution)
+- [Link to documentation](#link-to-documentation)
+    - [Examples](#examples)
 
-`BeanstalkProxyTransport` delegate the API consumption to workers by sending location properties to a Beanstalkd queue.
+## Purpose
+This client permit to use the `Bid Api`. Thanks to it, you could request the API to :
+* Fetch data
+* Create data
+* Update data
+* Delete data
 
-`BasicTransport` use the _classic_ HTTP layer to send emails.
+easily
 
-If asynchronous transport is set, it will act as default transport. Synchronous transport will be a fallback in case
-when asynchronous transport fails.
+## Requirements 
 
-All examples in this document will only use `BasicTransport`.
+### Runtime
+- PHP 5.5
 
-## Installation
+## Step by step Installation
+> for all purposes (devlopment, contribution and production)
 
-Add this requirement to your `composer.json`: `"fei/bid-client": : "^1.0"`
+### Initialization
+- Cloning repository 
+```git clone https://github.com/flash-global/bid-client.git```
+- Run Composer depedencies installation
+```composer install```
 
-Or execute `composer.phar require fei/bid-client` in your terminal.
+### Settings
 
-## Basic usage
+Don't forget to set the right `baseUrl` :
+
+```php
+<?php 
+$bidder = new Bidder([Bidder::OPTION_BASEURL => 'http://bid.test.flash-global.net']);
+$bidder->setTransport(new BasicTransport());
+```
+
+### Known issues
+No known issue at this time.
+
+## Contribution
+As FEI Service, designed and made by OpCoding. The contribution workflow will involve both technical teams. Feel free to contribute, to improve features and apply patches, but keep in mind to carefully deal with pull request. Merging must be the product of complete discussions between Flash and OpCoding teams :) 
+
+## Link to documentation 
+
+### Examples
+You can test this client easily thanks to the folder [example](example)
+
+Here, an example on how to use example : `php /my/bid-client/folder/example/bid.php` 
+
 
 A auction is container for bid. So if you want to bid, you must in first instance create a Auction session:
 
@@ -96,13 +134,8 @@ On the same behaviour of `Bidder::createAuction`, `Bidder::bid` returns a identi
 Note that `Auction` and `Bid` are _contextable_. So you can attach various (or free) context (key/value pair) to your
 entities and later retrieve bids with free filters.
 
-## Retrieves Auction and Bids
+### Retrieves Auction and Bids
 
-### Get an auction
-
-You can retrieve an Auction instance with `Bidder::getAuction($key)`.
-
-#### Example
 
 ```php
 <?php
@@ -158,7 +191,7 @@ foreach ($bids as $bid) {
 }
 ```
 
-## Other tools
+### Other tools
 
 There is other methods which will be helpful for auctions and bids management:
 
@@ -166,7 +199,7 @@ There is other methods which will be helpful for auctions and bids management:
 * `Bidder::dropAuction(Auction $auction)` drop a `Auction` instance (aka erase definitively)
 * `Bidder::dropBid(Bid $bi)` drop a `Bid` instance
 
-## Client option
+### Client option
 
 Below options are available which can be passed to the `__construct()` or `setOptions()` methods:
 
