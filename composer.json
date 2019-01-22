@@ -2,11 +2,11 @@
     "name": "fei/bid-client",
     "description": "Flash applicative Bid - client component",
     "type": "project",
-    "license": "proprietary",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Vincent Simonin",
-            "email": "vsi@opcoding.eu"
+            "email": "v.simonin@redspher.com"
         }
     ],
     "autoload": {
@@ -14,20 +14,6 @@
             "Fei\\Service\\Bid\\Client\\": "src/"
         }
     },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:flash-global/bid-common.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:flash-global/api-client.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:flash-global/entities.git"
-        }
-    ],
     "require": {
         "fei/bid-common": "^2.0",
         "fei/api-client": "^1.1",
