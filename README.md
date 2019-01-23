@@ -170,6 +170,7 @@ There is other methods which will be helpful for auctions and bids management:
 
 Below options are available which can be passed to the `__construct()` or `setOptions()` methods:
 
-| Option         | Description                                    | Type   | Possible Values                                | Default |
-|----------------|------------------------------------------------|--------|------------------------------------------------|---------|
-| OPTION_BASEURL | This is the server to which send the requests. | string | Any URL, including protocol but excluding path | -       |
+| Option                      | Description                                    | Type   | Possible Values                                | Default |
+|-----------------------------|------------------------------------------------|--------|------------------------------------------------|---------|
+| OPTION_BASEURL              | This is the server to which send the requests. | string | Any URL, including protocol but excluding path | -       |
+| OPTION_HEADER_AUTHORIZATION | Api Key for authentification.                  | string | Any string value                               | ''      |
