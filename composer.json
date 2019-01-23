@@ -2,7 +2,7 @@
     "name": "fei/bid-client",
     "description": "Flash applicative Bid - client component",
     "type": "project",
-    "license": "GPL-3.0-or-later",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "Vincent Simonin",
