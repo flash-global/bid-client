@@ -17,7 +17,9 @@ use Fei\Service\Bid\Client\Exception\ValidationException;
 use Fei\Service\Bid\Entity\Auction;
 use Fei\Service\Bid\Entity\Bid;
 use Guzzle\Http\Exception\BadResponseException;
-use Guzzle\Http\Message\Response;
+//use Guzzle\Http\Message\Response;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Request;
 
 /**
  * Class BidTest
@@ -73,13 +75,12 @@ class BidTest extends Unit
 
     public function testCreateAuctionNonUnique()
     {
-        $badResponseException = new BadResponseException();
+        $request = new Request('get', '/test');
         $body = \json_encode([
             'type' => UniqueConstraintViolationException::class
         ]);
         $response = new Response(500, [], $body);
-
-        $badResponseException->setResponse($response);
+        $badResponseException = new BadResponseException('non unique', $request, $response);
 
         $transport = $this->createMock(SyncTransportInterface::class);
         $transport->expects($this->once())->method('send')->willThrowException(
@@ -96,13 +97,12 @@ class BidTest extends Unit
 
     public function testCreateAuctionBidderException()
     {
-        $badResponseException = new BadResponseException('bad response');
+        $request = new Request('get', '/test');
         $body = \json_encode([
             'type' => \RuntimeException::class
         ]);
         $response = new Response(500, [], $body);
-
-        $badResponseException->setResponse($response);
+        $badResponseException = new BadResponseException('bad response', $request, $response);
 
         $transport = $this->createMock(SyncTransportInterface::class);
         $transport->expects($this->once())->method('send')->willThrowException(
