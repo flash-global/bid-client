@@ -20,6 +20,7 @@
         "fei/entities": "^1.0"
     },
     "require-dev": {
-        "codeception/codeception": "^2.2"
+        "codeception/codeception": "^2.2",
+        "phpro/grumphp": "^0.14.3"
     }
 }
