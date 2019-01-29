@@ -21,6 +21,7 @@
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
-        "phpro/grumphp": "^0.14.3"
+        "phpro/grumphp": "^0.14.3",
+        "squizlabs/php_codesniffer": "~2.4"
     }
 }
